@@ -42,17 +42,20 @@ img {
     object-fit: cover;
 }
 
+/* CSS personalizzato per le righe e le colonne del tabellone dei treni */
 table {
     width: 100%;
 }
 
 th {
+    text-align: center;
     border: 1px solid #dddddd;
     background-color: var(--title-th-background);
     color: white;
 }
 
 td {
+    text-align: center;
     border: 1px solid #dddddd;
     color: var(--font-table-train);
 }
@@ -64,6 +67,35 @@ tr:nth-child(even) {
 tr:nth-child(odd) {
     background-color: var(--scoreboard-alt);
 }
+/* Fine CSS personalizzato per le righe e le colonne del tabellone dei treni */
 
 /* ---------- Media Query ---------- */
-@media (max-width: 576px) {}
+@media (max-width: 992px) {
+    th {
+        font-size: 12px !important;
+    }
+
+    tr th.px-3,
+    tr td.px-3 {
+        padding: 0 !important;
+    }
+
+    td {
+        font-size: 12px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    th {
+        font-size: 5px !important;
+    }
+
+    tr th.px-3,
+    tr td.px-3 {
+        padding: 0 !important;
+    }
+
+    td {
+        font-size: 5px !important;
+    }
+}

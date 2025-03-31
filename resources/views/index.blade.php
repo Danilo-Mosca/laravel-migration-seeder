@@ -47,7 +47,7 @@
                             $dateFormatted = date_create($train->data_partenza);
                             // dd ($dateFormatted);
                         @endphp
-                        <td class="px-5">{{ date_format($dateFormatted, "d/m/Y") }}</td>
+                        <td class="px-3">{{ date_format($dateFormatted, "d/m/Y") }}</td>
                     </tr>
                 @endforeach
 
