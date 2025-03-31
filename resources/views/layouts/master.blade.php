@@ -22,7 +22,7 @@
     @include('partials.header')
 
 
-    <div class="container">
+    <div class="container-fluid">
         {{-- contenuto personalizzato delle pagine --}}
         @yield('content')
     </div>

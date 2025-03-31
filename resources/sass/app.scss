@@ -6,3 +6,64 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+
+// CSS personalizzato
+
+/* variabili di root */
+:root {
+    --font-table-train: #F6D41C;
+    --scoreboard: #4C4C4C;
+    --title-th-background: #0F0F1B;
+    --scoreboard-alt: #393838;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Share Tech Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Classe di debug */
+.debug {
+    // border: 1px solid var(--prova1);
+    border: 1px solid red;
+}
+
+/* Classe fluida per le immagini */
+img {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    border: 1px solid #dddddd;
+    background-color: var(--title-th-background);
+    color: white;
+}
+
+td {
+    border: 1px solid #dddddd;
+    color: var(--font-table-train);
+}
+
+tr:nth-child(even) {
+    background-color: var(--scoreboard);
+}
+
+tr:nth-child(odd) {
+    background-color: var(--scoreboard-alt);
+}
+
+/* ---------- Media Query ---------- */
+@media (max-width: 576px) {}
