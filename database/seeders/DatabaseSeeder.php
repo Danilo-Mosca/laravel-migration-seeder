@@ -13,11 +13,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // Codice vecchio già presente:
         // User::factory(10)->create();
+        // User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // codice che esegue il nostro seeder:
+        $this->call(TrainsTableSeeder::class);  //chiamo il metodo call() per eseguire il nostro seeder, a cui a sua volta gli passo la classe TrainsTableSeeder (con ::class)
     }
 }
