@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Train;
+use DateTime;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -28,8 +29,14 @@ class TrainsTableSeeder extends Seeder
             $newTrain->azienda = Str::limit($faker->company, 30, '');
             $newTrain->stazione_di_partenza = Str::limit($faker->city, 40, '');
             $newTrain->stazione_di_arrivo = Str::limit($faker->city, 40, '');
+            // Genero un orario di partenza casuale:
             $newTrain->orario_di_partenza = $faker->time('H:i:s');
-            $newTrain->orario_di_arrivo = $faker->time('H:i:s');
+            // Converto il primo orario restituito in un oggetto DateTime per manipolarlo:
+            $dateTimePartenza = new DateTime($newTrain->orario_di_partenza);
+            // Aggiungo un intervallo casuale tra 1 e 8 ore per garantire che l'orario di arrivo generato casualmente sia successivo a quello di partenza:
+            $dateTimeArrivo = $dateTimePartenza->modify('+' . $faker->numberBetween(1, 6) . ' hours');
+            // Assegno l'orario successivo di arrivo alla colonne "orario_di_arrivo" del database:
+            $newTrain->orario_di_arrivo = $dateTimeArrivo;
             // Metodo successivo spiegato:
             // unique() assicura che il valore generato sia univoco.
             // regexify('TRN[A-Z0-9]{5}') genera una stringa che inizia con "TRN" ed è seguita da 5 caratteri {5} alfanumerici compresi tra A e Z e 0 e 9:
