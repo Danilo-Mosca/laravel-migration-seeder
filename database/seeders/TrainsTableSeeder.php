@@ -41,7 +41,7 @@ class TrainsTableSeeder extends Seeder
             // unique() assicura che il valore generato sia univoco.
             // regexify('TRN[A-Z0-9]{5}') genera una stringa che inizia con "TRN" ed è seguita da 5 caratteri {5} alfanumerici compresi tra A e Z e 0 e 9:
             $newTrain->codice_treno = $faker->unique()->regexify('TRN[A-Z0-9]{5}');
-            $newTrain->totale_carrozze = $faker->numberBetween(0, 30);
+            $newTrain->totale_carrozze = $faker->numberBetween(3, 30);
             $newTrain->in_orario = $faker->boolean;
             $newTrain->cancellato = $faker->boolean;
             // Dico di restituirmi una data compresa tra il 1/03/2025 e 1 anno dalla data inserita, ovvero fino al 1/03/2026:
